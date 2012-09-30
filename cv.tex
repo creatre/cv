@@ -5,32 +5,68 @@
 %
 %
 %
-\documentclass[paper=a4,fontsize=11pt]{scrartcl}
+\documentclass[a4paper,12pt,final]{memoir}
 
-\usepackage{amsmath,amsfonts,amsthm} 
-\usepackage{graphicx}
-\usepackage[svgnames]{xcolor} 
-\usepackage{geometry} 
-     \textheight=700px 
-\usepackage{url} 
-\usepackage{wrapfig}
-
-\frenchspacing
+\renewcommand{\familydefault}{bch}
 \pagestyle{empty}
+\setlength{\parindent}{0pt}
 
-\usepackage{sectsty}
-  \sectionfont{%
-    \usefont{OT1}{phv}{b}{n}%
-    \sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+\usepackage{flowfram} 
+\usepackage[top=1cm,left=0.5cm,right=1cm,bottom=1cm]{geometry} 
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[usenames,dvipsnames,svgnames]{xcolor} 
+\usepackage{multicol} 
+  \setlength{\multicolsep}{0pt}
+\usepackage{paralist} 
+\usepackage{tikz} 
+
+\setlength{\vcolumnsep}{\baselineskip}
+\setlength{\columnsep}{\vcolumnsep}
+
+% left frame
+\newflowframe{0.2\textwidth}{\textheight}{0pt}{0pt}[left]
+	\newlength{\LeftMainSep}
+	\setlength{\LeftMainSep}{0.2\textwidth}
+	\addtolength{\LeftMainSep}{1\columnsep}
+ 
+% small static frame for the vertical line
+\newstaticframe{1.5pt}{\textheight}{\LeftMainSep}{0pt}
+ 
+% content of the static frame
+\begin{staticcontents}{1}
+\hfill
+\tikz{%
+	\draw[loosely dotted,color=RoyalBlue,line width=1.5pt,yshift=0]
+	(0,0) -- (0,\textheight);}%
+\hfill\mbox{}
+\end{staticcontents}
+ 
+% right frame
+\addtolength{\LeftMainSep}{1.5pt}
+\addtolength{\LeftMainSep}{1\columnsep}
+\newflowframe{0.7\textwidth}{\textheight}{\LeftMainSep}{0pt}[main01]
+
+
+\newcommand{\Sep}{\vspace*{1.5em}}
+\newcommand{\SmallSep}{\vspace*{0.5em}}
+
+\newenvironment{AboutMe}
+  {\ignorespaces\textbf{\color{RoyalBlue} About me}}
+  {\Sep\ignorespacesafterend}
+
+\newcommand{\CVSection}[1]
+	{\Large\textbf{#1}\par
+	\SmallSep\normalsize\normalfont}
+\newcommand{\CVItem}[1]
+	{\textbf{\color{RoyalBlue} #1}}
+
+
+
 
 \newlength{\spacebox}
-\settowidth{\spacebox}{1234567890}
-
 \newcommand{\sepspace}{\vspace*{1em}}
-
-\newcommand{\MyName}[1]{
-  \Huge \usefont{OT1}{phv}{b}{n} \hfill #1
-  \par \normalsize \normalfont}
 
 \newcommand{\MySlogan}[1]{
   \small \usefont{OT1}{phv}{m}{n}\hfill \textit{#1} % Slogan (optional)
@@ -41,24 +77,31 @@
 \newcommand{\PersonalEntry}[2]{
   \noindent\hangindent=2em\hangafter=0
   \parbox{\spacebox}{
-    \textit{#1}}
-    \hspace{1.5em} #2 \par}
+    \textit{#1}
+  }
+  \hspace{1.5em} #2 \par
+}
 
 \newcommand{\EducationEntry}[4]{
-		\noindent \textbf{#1} \hfill 					% Study
-		\colorbox{Black}{%
-			\parbox{6em}{%
-			\hfill\color{White}#2}} \par				% Duration
-		\noindent \textit{#3} \par					% School
-		\noindent\hangindent=2em\hangafter=0 \small #4 	% Description
-		\normalsize \par}
+  \noindent \textbf{#1} \hfill 					% Jobname
+  \colorbox{Black} {%
+    \parbox{6em}{%
+      \hfill\color{White}#2
+    }
+  } \par		% Duration
+  \noindent \textit{#3} \par					% Company
+  \noindent\hangindent=2em\hangafter=0 \small #4 	% Description
+  \normalsize \par
+}
 
-\newcommand{\WorkEntry}[4]{						% Same as \EducationEntry
-		\noindent \textbf{#1} \hfill 					% Jobname
-		\colorbox{Black}{\color{White}#2} \par		% Duration
-		\noindent \textit{#3} \par					% Company
-		\noindent\hangindent=2em\hangafter=0 \small #4 	% Description
-		\normalsize \par}
+\newcommand{\WorkEntry}[4]{
+  % Same as \EducationEntry
+  \noindent \textbf{#1} \hfill              % Jobname
+  \colorbox{Black}{\color{White}#2} \par    % Duration
+  \noindent \textit{#3} \par                % Company
+  \noindent\hangindent=2em\hangafter=0 \small #4 % Description
+  \normalsize \par
+}
 
 %\setlength\topmargin{-48pt}
 %\setlength\headheight{0pt}
@@ -73,99 +116,113 @@
 \title{CV}
 \begin{document}
 
-\begin{wrapfigure}{l}{0.5\textwidth}
-	\vspace*{-2em}
-		\includegraphics[width=0.15\textwidth,natwidth=180,natheight=180]{mesmall.jpeg}
-\end{wrapfigure}
+% Left
+\begin{figure}
+	\hfill
+	\includegraphics[width=0.6\columnwidth,natwidth=180,natheight=180]{mesmall.jpeg}
+	\vspace{-7cm}
+\end{figure}
 
-\MyName{Mikael Vatau}
-\MySlogan{work creates, creativity is fun} %mv why doesn't it say what I want damn it..,
+\begin{flushright}\small
+	Mikael H. Vatau \\
+	\url{mike@mikesdiary.com}  
+\end{flushright}\normalsize
+\framebreak
 
-\sepspace
+%Right
+\Huge\bfseries {\color{RoyalBlue} Mikael H. Vatau} \\
+\tiny\bfseries  “Problems cannot be solved by the same level of thinking that created them.”
+%\small\bfseries  “work creates, creativity is fun" %mv why doesn't it say what I want damn it..,
 
-\NewPart{Me} %mv should probably at some skills here..
-\PersonalEntry{Past work}{Embedded systems, Mobile phones, Web, Robotics}
-\PersonalEntry{Languages}{C, C++, Java, PHP, Pascal, English, Swedish}
-\PersonalEntry{Tools}{zsh, vim, internet and coffee. Otherwise what will fit best}
-\PersonalEntry{Likes}{Thinking, Optimizing, Positivity, Warmth, Good food}
+\normalsize\normalfont
+\Sep
+\begin{AboutMe} %mv should probably at some skills here..
+  Very proficient developer with more then 7 year experience with developing mobile phone platform
+  and almost 12 year experience in embedded system development both hardware and software.
+  Worked within many areas such as Audio, GPS, touchscreen, Bluetooth, WLAN and Motor control in both
+  large and small scaled project.
+\end{AboutMe}
 
-\NewPart{Netville, consultant (2005 - present)}{Worked as a consultant for more than 
+\CVSection{Expertice}
+Software development (+12 years) (C, C++, Java, PHP, Assembler, etc.\\
+Linux kernel development (drivers, ALSA, power manager etc.\\
+Android\\ 
+Embedded systems\\  
+Low level (Audio, GPS, Bluetooth, WLAN, CAN, etc. \\ 
+Version control systems (Git, Clearcase, CVS)\\
+Debugging (Lauterbach, GDB) \\
+Good at optimizing software \\
+Good communicator\\
+\Sep
+
+
+\CVSection{Experience}
+\WorkEntry{Consultant}{2005 - present}{Netville}{Worked as a consultant for more than 
   7 years for different customers in the mobile phone industry in different areas such 
   as software configuration, developer for low level audio, GPS, touch screen, WLAN, 
   Bluetooth, as well as on-site support and higher level application development.}
 \sepspace
 
-\WorkEntry{Developer}{Oct 2010-present}{ST-Ericsson}
-  {Worked with Audio issues with the Low level Audio/Hardware team on the Android platform 
-  at the kernel level close to the hardware. I was involved in Low audio playback and  
-  wideband Bluetooth development in the audio codec.  I was also helping customers in Asia 
-  and Sweden on site with audio issues. I was also involved in writing the LTP test cases for 
-  the ALSA driver.}
-\sepspace
-
-\WorkEntry{Developer}{Jun 2010-Sep 2010}{Netville Customer}
-{Developed an Android application to help visually impaired people making phone calls.} %mv Fined the political correct term for impaired
-\sepspace
-
-\WorkEntry{Developer}{Mar 2009 - Apr 2010}{Sony Ericsson Mobile Communications AB}
-  {Developer of Embedded Test Software (ETS) for testing hardware components in a mobile 
-  phone and worked mainly with GPS, WLAN and touch display. The ETS software was used at 
-  the production site both when manufacturing developer prototypes and in the high volume 
-  manufacturing. The ETS software was running on an Android platform and since we were one
-  of the first to get involved with new platform, we also helped with bringing up the drivers.}
-\sepspace
-
-\WorkEntry{Developer}{Mar 2005 - May 2008}{Ericsson AB}	
-  {C, Lint, Visual Studio, Eclipse PCLint is a static code analysis tool that flag suspicious 
-    constructs in the c code and was used by all the developers before releasing code changes. 
-  I worked with configuring the PCLint tool for new platform versions (OSE) and when changing 
-  compilers. I also supported developers with advice concerning ANSI C and/or updating the 
-  configuration files. 
+\CVItem{2 years, Low level Audio/HW, ST-Ericsson}
+  {where I worked with Low Power audio playback, Wideband Bluetooth and ALSA. Later worked with customers 
+    on site in Asia and Sweden troubleshooting critical issues under time pressure before release.
   }
 \sepspace
 
-\WorkEntry{Developer}{Mar 2005 - May 2007}{Ericsson AB}		
-  {Worked with integration of component subsystems in a ClearCase environment at the Open Platform 
-  Architecture (OPA) department. This included regression testing, release and test documentation. 
-  When there was a regression I was responsible of finding out the guilty party by performing log-, 
-  dump analysis analysis and debugging with Lauterbach}
+\CVItem{3 month, Netville Customer}
+{Developed an Android application to enable visually impaired to use the phone.} 
 \sepspace
 
-\NewPart{Robotics, Lund University (2000 - 2004)}{Worked at the Robotics department, Lund University,
-  in almost 5 years with several project, Sole responsibility for the hardware and software 
-  and in teams to administrate the departments computer and develop the department new website.}
+\CVItem{1 year, Sony Ericsson Mobile Communications AB}
+  {Worked with test software used on phone at production site to test GPS, which involved optimizing
+    S/N calculation lowering the test time from 30 sec to under 4 seconds. Worked also with Display
+    test and WLAN Drivers.
+  }
 \sepspace
 
-\WorkEntry{System administration}{Jan 2000 - Sep 2004}{Robotics institution, University of Lund}		
+\CVItem{4, years, Ericsson AB}	
+  {Worked as configuration manager, and later as a developer at the Open Platform Architecture department. 
+    Was also responsible for configuration static code analysis tool (PCLint) and aid other software developers
+    concerning ANSI C, and code standard issues.}
+\clearpage
+\framebreak
+\framebreak
+
+
+\WorkEntry{Research engineer}{Jan 2000- Sep 2004}{Robotics, Lund University}{Worked 
+  almot 5 years in multiple hardware and software projects, 
+  Maintaining of the departments computer and with development of their website.}
+\sepspace
+
+\CVItem{4 years, Robotics institution}		
   {Administrating IRIX, Linux and Windows Network at the robotics department.}
 \sepspace
 
-\WorkEntry{Developer}{Apr 2003 - Sep 2004}{Robotics institution, University of Lund}		
+\CVItem{1 year, AstraZeneca}		
   {Developed software for a laboratory robot used by AstraZeneca for protein testing. 
-  The robot would take a protein sample, deploy it, and then clean the picker. 
-  Software was done in PLC using the IsaGRAPH Designer.}
+  }
 \sepspace
 
-\WorkEntry{Developer}{Jul 2003 - Feb 2004}{Robotics institution, University of Lund}		
-  {Developed a new website for the Robotics department which included news section, document repository. 
-  PHP, MySQL and JavaScript.} 
+\CVItem{7 month, Robotics institution}		
+  {Developed the institution new website included news section, document repository, etc. 
+  } 
 \sepspace
 
-\WorkEntry{HW design}{Jan 2000 - Jun 2003}{Robotics institution, University of Lund}		
-{Designed several variants of micro controller cards that where used to control DC and Step motors. The microcontroller card was based on a 32 bit CPU from 
+\CVItem{3 years, Robotics institution}		
+{Designed microcontroller cards that where used to control DC and Step motors. Based on a 32 bit CPU from 
   Freescale. The design was made in Protel Cad software and verify / troubleshoot the hardware. Different versions were produced depending on power, size, and communication requirements.
 }
 \sepspace
 
-\WorkEntry{Developer}{Mar 2000 - Jun 2003}{Robotics institution, University of Lund}		
-{Developed the communication software used on an embedded system to communicate both with other  embedded systems and with a PC via the CAN protocol.
-  The software was for a microcontroller that would be used to control the nodes on a robotic arm, attached to a wheelchair for
-impaired people (find better word).} %mv Fined the political correct term for impaired
+\CVItem{3 years, Robotics institution}		
+{Developed motor control and software used on an embedded system to communicate both with other  embedded systems and with a PC via the CAN protocol.
+  The software was for a microcontroller that would be used to control the nodes on a robotic arm, attached to a wheelchair for physically disabled people.
+} 
 \sepspace
 
-\WorkEntry{Developer}{Jan 2001 - Jun 2002}{Robotics institution, University of Lund}		
-{Was part in a project developing a can/bottle opener that would open the container at a push of a button. Responsible for the electronics and software. 
-The can opener was for impaired people so safety was also involved.} %mv Fined the political correct term for impaired
+\CVItem{17 month, EU project}		
+{Was responsible for the design and implementation of the hardware electronics and software in an EU project developing a can/bottle opener for physically disabled people. 
+} 
 
 
 \NewPart{Education}{}
@@ -174,24 +231,16 @@ The can opener was for impaired people so safety was also involved.} %mv Fined t
 {Linux for Embedded Systems Advanced}	
 \sepspace
 
-\EducationEntry {Course}{2008}{Ericsson AB}
-{Linux for Embedded Systems}	
+\EducationEntry {Course}{2008}{Ericsson AB - Linux for Embedded Systems}{}
+
+\EducationEntry {Course}{2006}{Ericsson AB - GPRS Security}{}
+
+\EducationEntry{Course, , University}{2003}{Malm\"{o}ö Education - Practical English in Cross}{cultural Communications}
 \sepspace
 
-\EducationEntry {Course}{2006}{Ericsson AB}
-{GPRS Security}	
-\sepspace
+\EducationEntry {Course}{2000}{SGI - IRIX System administration}{}
 
-\EducationEntry{Course, , University}{2003}{Malm\"{o}ö Education}
-{Practical English in Cross-cultural Communications}
-\sepspace
-
-\EducationEntry {Course}{2000}{SGI}
-{IRIX System administration}	
-\sepspace
-
-\EducationEntry{B.Sc.E.E. Electro Engineer}{1997-2000}{Lund Institute of Technology} {}
-
+\EducationEntry{B.Sc.E.E. Electro Engineer}{1997-2000}{Lund Institute of Technology}{}
 \end{document}
 
 
