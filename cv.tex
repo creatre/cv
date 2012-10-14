@@ -4,46 +4,66 @@
 %
 %
 %
-%
-\documentclass[paper=a4,fontsize=11pt]{scrartcl}
+%  CRAZY
 
-\usepackage{amsmath,amsfonts,amsthm} 
-\usepackage{graphicx}
+
+% Text dimensions
+
+
+
+\documentclass{article}
+\usepackage{newspaper}
+
+\date{\today}
+\currentvolume{1}
+\currentissue{73}
+
+\usepackage{times}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{multicol}
+\usepackage{picinpar}
+
+%\usepackage{amsmath,amsfonts,amsthm} 
 \usepackage[svgnames]{xcolor} 
-\usepackage{geometry} 
-     \textheight=700px 
-\usepackage{url} 
+%\usepackage{geometry} 
+%%     \textheight=700px 
+%\usepackage{url} 
 \usepackage{wrapfig}
-
-\frenchspacing
-\pagestyle{empty}
-
+%
+%\frenchspacing
+%\pagestyle{empty}
+%
 \usepackage{sectsty}
   \sectionfont{%
     \usefont{OT1}{phv}{b}{n}%
     \sectionrule{0pt}{0pt}{-5pt}{3pt}}
-
+%
+\begin{document}
 \newlength{\spacebox}
 \settowidth{\spacebox}{1234567890}
-
+%
 \newcommand{\sepspace}{\vspace*{1em}}
-
+%
 \newcommand{\MyName}[1]{
   \Huge \usefont{OT1}{phv}{b}{n} \hfill #1
-  \par \normalsize \normalfont}
+  \par \normalsize \normalfont
+}
 
 \newcommand{\MySlogan}[1]{
   \small \usefont{OT1}{phv}{m}{n}\hfill \textit{#1} % Slogan (optional)
-  \par \normalsize \normalfont}
+  \par \normalsize \normalfont
+}
 
 \newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
-
+%
 \newcommand{\PersonalEntry}[2]{
   \noindent\hangindent=2em\hangafter=0
   \parbox{\spacebox}{
-    \textit{#1}}
-    \hspace{1.5em} #2 \par}
-
+    \textit{#1}
+  }
+  \hspace{1.5em} #2 \par
+}
+%
 \newcommand{\EducationEntry}[4]{
 		\noindent \textbf{#1} \hfill 					% Study
 		\colorbox{Black}{%
@@ -52,31 +72,89 @@
 		\noindent \textit{#3} \par					% School
 		\noindent\hangindent=2em\hangafter=0 \small #4 	% Description
 		\normalsize \par}
-
+%
 \newcommand{\WorkEntry}[4]{						% Same as \EducationEntry
 		\noindent \textbf{#1} \hfill 					% Jobname
 		\colorbox{Black}{\color{White}#2} \par		% Duration
 		\noindent \textit{#3} \par					% Company
 		\noindent\hangindent=2em\hangafter=0 \small #4 	% Description
 		\normalsize \par}
+%
+%%\setlength\topmargin{-48pt}
+%%\setlength\headheight{0pt}
+%%\setlength\headsep{25pt}
+%%\setlength\marginparwidth{-20pt}
+%%\setlength\textwidth{7.0in}
+%%\setlength\textheight{9.5in}
+%%\setlength\oddsidemargin{-30pt}
+%%\setlength\evensidemargin{-30pt}
+%
+\SetPaperName{Mikael TimeS}
+\SetHeaderName{Awesome}
+\SetPaperLocation{Malm\"{o}}
+%\SetPaperSlogan{Working to create}
+\SetPaperPrice{USD $10^6$}
+%
+%
+%\author{Mikael Vatau}
+%\title{CV}
+\maketitle
+\begin{multicols}{3}{
+    \byline{\sc\Large The Essence of Tools}{Mikael Vatau}
 
-%\setlength\topmargin{-48pt}
-%\setlength\headheight{0pt}
-%\setlength\headsep{25pt}
-%\setlength\marginparwidth{-20pt}
-%\setlength\textwidth{7.0in}
-%\setlength\textheight{9.5in}
-%\setlength\oddsidemargin{-30pt}
-%\setlength\evensidemargin{-30pt}
+    There is a lot to be said about using the right tools for the job, says
+    Mikael, a software engineer who has worked for over 12 years with embedded
+    systems.  Chefs brings their own favourad kitchen tools to work, it should
+    be the same for programmers. Mikael worked as a software developer in the 
+    mobile phone space for 7 years and before that as a research engineer at 
+    robotics department at Lunds University.
 
-\author{Mikael Vatau}
-\title{CV}
-\begin{document}
+    \begin{window}[2,r,\includegraphics[width=1in]{mesmall.eps},]
+      When asked what his favoured tools are he answers vim, zsh, linux, brain,
+      coffe, creativity and optimism, and ofcourse adaptation. You always think
+      about what you are trying to solve and then how to get there. Oh she is 
+      cute. And then you choose your tools. 
 
-\begin{wrapfigure}{l}{0.5\textwidth}
-	\vspace*{-2em}
-		\includegraphics[width=0.15\textwidth,natwidth=180,natheight=180]{mesmall.jpeg}
-\end{wrapfigure}
+    \end{window}
+  \closearticle
+
+  \headline{\it\huge Lund University}
+    Mikael has worked for both small and big employers. When I worked at the 
+    Robotics department at Lund University, I was the expert on embedded
+    system. It was the first job after University  and there were alot of
+    responsibility. I had to design the schematics for the embedded systems
+    and also make the software for them. The differense between designing
+    hardware and software was the development cycles. You get almost instant
+    responce if your program workes but you would have to wait a week or two
+    before you got your pcb board from the manufacturer. 
+    
+    Another aspect he remembered from this time was that he missed having 
+    colleges working in the same area to share solution with. But that was also
+    the good part. I learned alot and I mostly made the right decision, a 
+    confident booster. I was also involved in a lot of projects and met many
+    intresting people during my time there. 
+    
+    After that period he started to work as a consultant and mostly worked in 
+    larger mobile phone companies. \textit{`I started out as a integretor at Ericsson 
+    AB. My boss told me that it your work is being a cop. I integrated other
+    people software and when someone broke the platform you hunted down the
+    guilty one and made him fix it or remove his part. The debugging part and
+    was fun, but documenting what went in was very monotone work.'} 
+
+    Another part of this job was working with the lint tools, deciding what to 
+    filter, what to allow and answering question from other developers about 
+    the tools warning. This was fun and also educational and I learned alot
+    about good program practices and the quirks in the C language.
+
+    Working in other  
+}
+
+\end{multicols}
+
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%	\vspace*{-2em}
+%		\includegraphics[width=0.15\textwidth]{mesmall.eps}
+%\end{wrapfigure}
 
 \MyName{Mikael Vatau}
 \MySlogan{work creates, creativity is fun} %mv why doesn't it say what I want damn it..,
@@ -90,53 +168,64 @@
 \PersonalEntry{Likes}{Thinking, Optimizing, Positivity, Warmth, Good food}
 
 \NewPart{Netville, consultant (2005 - present)}{Consulting for more than 
-  7 years for different customers in the mobile phone industry. Worked in many different areas such 
-  as software configuration, developer for low level audio, GPS, touch screen, WLAN, 
-  Bluetooth, as well as on-site support and higher level application development.}
+  7 years for different customers in the mobile phone industry. Worked in many 
+  different areas such as software configuration, developer for low level
+  audio, GPS, touch screen, WLAN, Bluetooth, as well as on-site support and
+higher level application development.}
 \sepspace
 
 \WorkEntry{Developer}{Oct 2010-present}{ST-Ericsson}
-  {Helped debug and solve audio issues working with the Low level audio-hardware team on the Android platform 
-  at the kernel level close to the hardware. I was involved in Low power audio playback and  
-  the wideband Bluetooth usecases and also worked with the LTP tests for the ALSA driver. 
-  I supported Ericssons customers in both Asia and Sweden on site with audio issues before releases. 
+  {Helped debug and solve audio issues working with the Low level
+    audio-hardware team on the Android platform at the kernel level close to
+    the hardware. I was involved in Low power audio playback and the wideband
+    Bluetooth usecases and also worked with the LTP tests for the ALSA driver. 
+  I supported Ericssons customers in both Asia and Sweden on site with audio
+  issues before releases. 
   the ALSA driver.}
 \sepspace
 
 \WorkEntry{Developer}{Jun 2010-Sep 2010}{Netville Customer}
-{Developed an Android application to help visually impaired people making phone calls.} 
+{Developed an Android application to help visually impaired people making
+  phone calls.} 
 \sepspace
 
-\WorkEntry{Developer}{Mar 2009 - Apr 2010}{Sony Ericsson Mobile Communications AB}
-  {Developer of Embedded Test Software (ETS) for testing hardware components in mobile 
-  phones and worked mainly with GPS, WLAN and touch displays. The ETS software was used at 
-  the production site both when manufacturing developer prototypes and in the high volume 
-  manufacturing. The ETS software was running on an Android platform and since we were one
-  of the first to get involved with new platforms, we also helped with bringing up the drivers.}
+\WorkEntry{Developer}{Mar 2009 - Apr 2010}{Sony Ericsson Mobile Communications
+            AB}
+  {Developer of Embedded Test Software (ETS) for testing hardware components in
+    mobile phones and worked mainly with GPS, WLAN and touch displays. The ETS
+    software was used at the production site both when manufacturing developer
+    prototypes and in the high volume manufacturing. The ETS software was
+    running on an Android platform and since we were one of the first to get
+    involved with new platforms, we also helped with bringing up the drivers.}
 \sepspace
 
 \WorkEntry{Developer}{Mar 2005 - May 2008}{Ericsson AB}	
-  {Supported developers with the PCLint tool. is a static code analysis tool that flag suspicious 
-    constructs in the c code and was used by all the developers before releasing code changes. 
-  I worked with configuring the PCLint tool for new platform versions (OSE) and when changing 
-  compilers. I also supported developers with advice concerning ANSI C and/or updating the 
-  configuration files. 
+  {Supported developers with the PCLint tool. is a static code analysis tool
+    that flag suspicious constructs in the c code and was used by all the
+    developers before releasing code changes. I worked with configuring the
+    PCLint tool for new platform versions (OSE) and when changing compilers. I
+    also supported developers with advice concerning ANSI C and/or updating the
+    configuration files. 
   }
 \sepspace
 
 \WorkEntry{Developer}{Mar 2005 - May 2007}{Ericsson AB}		
-  {Worked with integration of component subsystems in a ClearCase environment at the Open Platform 
-  Architecture (OPA) department. This included regression testing, release and test documentation. 
-  When there was a regression I was responsible of finding out the guilty party by performing log-, 
-  dump analysis analysis and debugging with Lauterbach}
+  {Worked with integration of component subsystems in a ClearCase environment
+    at the Open Platform Architecture (OPA) department. This included
+    regression testing, release and test documentation.  When there was a
+    regression I was responsible of finding out the guilty party by performing
+    log-, dump analysis analysis and debugging with Lauterbach}
 \sepspace
 
-\NewPart{Robotics, Lund University (2000 - 2004)}{Worked at the Robotics department, Lund University,
-  in almost 5 years with several project, I had the responsibility for the hardware and software 
-  and was part of the team that administrated the departments computer and developed the department new website.}
+\NewPart{Robotics, Lund University (2000 - 2004)}{Worked at the Robotics
+  department, Lund University, in almost 5 years with several project, I had
+  the responsibility for the hardware and software and was part of the team
+  that administrated the departments computer and developed the department new
+  website.}
 \sepspace
 
-\WorkEntry{System administration}{Jan 2000 - Sep 2004}{Robotics institution, University of Lund}		
+\WorkEntry{System administration}{Jan 2000 - Sep 2004}{Robotics institution,
+  University of Lund}		
   {Administrating IRIX, Linux and Windows Network at the robotics department.}
 \sepspace
 
@@ -147,30 +236,37 @@
 \sepspace
 
 \WorkEntry{Developer}{Jul 2003 - Feb 2004}{Robotics institution, University of Lund}		
-  {Developed a new website for the Robotics department which included news section, document repository. 
-  PHP, MySQL and JavaScript.} 
+  {Developed a new website for the Robotics department which included news
+    section, document repository.  PHP, MySQL and JavaScript.} 
 \sepspace
 
 \WorkEntry{HW design}{Jan 2000 - Jun 2003}{Robotics institution, University of Lund}		
-{Designed several variants of micro controller cards that where used to control DC and Step motors. The microcontroller card was based on a 32 bit CPU from 
-  Freescale. The design was made in Protel Cad software and verify / troubleshoot the hardware. Different versions were produced depending on power, size, and communication requirements.
+{Designed several variants of micro controller cards that where used to control
+  DC and Step motors. The microcontroller card was based on a 32 bit CPU from
+  Freescale. The design was made in Protel Cad software and verify /
+  troubleshoot the hardware. Different versions were produced depending
+  on power, size, and communication requirements.
 }
 \sepspace
 
 \WorkEntry{Developer}{Mar 2000 - Jun 2003}{Robotics institution, University of Lund}		
-{Developed the communication software used on an embedded system to communicate both with other  embedded systems and with a PC via the CAN protocol.
-  The software was for a microcontroller that would be used to control the nodes on a robotic arm, attached to a wheelchair for
-physically impaired people} 
+{Developed the communication software used on an embedded system to communicate
+  both with other  embedded systems and with a PC via the CAN protocol.
+  The software was for a microcontroller that would be used to control the
+  nodes on a robotic arm, attached to a wheelchair for physically impaired
+  people} 
 \sepspace
 
 \WorkEntry{Developer}{Jan 2001 - Jun 2002}{Robotics institution, University of Lund}		
-{Responsible for the electronics and software in a EU project where we developed a can/bottle opener that would open the container at a push of a button. 
-The can opener was for impaired people so safety was also involved.} %mv Fined the political correct term for impaired
+{Responsible for the electronics and software in a EU project where we
+  developed a can/bottle opener that would open the container at a push of a
+  button. The can opener was for impaired people so safety was also involved.}
 
 
 \NewPart{Education}{}
 
-\EducationEntry {Linux for Embedded Systems Advanced}{2009}{Sony Ericsson Mobile Communications AB (ENEA)}
+\EducationEntry {Linux for Embedded Systems Advanced}{2009}{Sony Ericsson
+  Mobile Communications AB (ENEA)}
 {}	
 \sepspace
 
@@ -182,7 +278,8 @@ The can opener was for impaired people so safety was also involved.} %mv Fined t
 {}	
 \sepspace
 
-\EducationEntry{Practical English in Cross-cultural Communications}{2003}{Malm\"{o}ö University}
+\EducationEntry{Practical English in Cross-cultural Communications}{2003}
+{malm\"{o}ö University}
 {}
 \sepspace
 
@@ -190,7 +287,8 @@ The can opener was for impaired people so safety was also involved.} %mv Fined t
 {}	
 \sepspace
 
-\EducationEntry{B.Sc.E.E. Electro Engineer}{1997-2000}{Lund Institute of Technology} {}
+\EducationEntry{B.Sc.E.E. Electro Engineer}{1997-2000}
+{Lund Institute of Technology} {}
 
 \end{document}
 
