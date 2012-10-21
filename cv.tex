@@ -69,12 +69,12 @@
 		\colorbox{Black}{%
 			\parbox{6em}{%
 			\hfill\color{White}#2}} \par				% Duration
-		\noindent \textit{#3} \par					% School
+		\noindent \textit{#3} \par				    	% School
 		\noindent\hangindent=2em\hangafter=0 \small #4 	% Description
 		\normalsize \par}
 %
-\newcommand{\WorkEntry}[4]{						% Same as \EducationEntry
-		\noindent \textbf{#1} \hfill 					% Jobname
+\newcommand{\WorkEntry}[4]{						    % Same as \EducationEntry
+		\noindent \textbf{#1} \hfill 				% Jobname
 		\colorbox{Black}{\color{White}#2} \par		% Duration
 		\noindent \textit{#3} \par					% Company
 		\noindent\hangindent=2em\hangafter=0 \small #4 	% Description
@@ -102,51 +102,84 @@
 \begin{multicols}{3}{
     \byline{\sc\Large The Essence of Tools}{Mikael Vatau}
 
+    \begin{window}[2,r,\includegraphics[width=1in]{mesmall.eps},]
     There is a lot to be said about using the right tools for the job, says
     Mikael, a software engineer who has worked for over 12 years with embedded
-    systems.  Chefs brings their own favourad kitchen tools to work, it should
+    systems. Chefs brings their own favourad kitchen tools to work, it should
     be the same for programmers. Mikael worked as a software developer in the 
     mobile phone space for 7 years and before that as a research engineer at 
     robotics department at Lunds University.
 
-    \begin{window}[2,r,\includegraphics[width=1in]{mesmall.eps},]
-      When asked what his favoured tools are he answers vim, zsh, linux, brain,
-      coffe, creativity and optimism, and ofcourse adaptation. You always think
-      about what you are trying to solve and then how to get there. Oh she is 
-      cute. And then you choose your tools. 
-
+    When asked what his favoured tools are he answers vim, zsh, linux, brain,
+    coffe, creativity and optimism, and ofcourse adaptation. \textit{''You 
+    think about what you are trying to solve and then how to get there.
+    And then you choose your tools.''} 
     \end{window}
   \closearticle
 
   \headline{\it\huge Lund University}
-    Mikael has worked for both small and big employers. When I worked at the 
-    Robotics department at Lund University, I was the expert on embedded
-    system. It was the first job after University  and there were alot of
-    responsibility. I had to design the schematics for the embedded systems
-    and also make the software for them. The differense between designing
-    hardware and software was the development cycles. You get almost instant
-    responce if your program workes but you would have to wait a week or two
-    before you got your pcb board from the manufacturer. 
+    Mikael has worked in both small and large organisations. When working at the
+    Robotics department at Lund University, he was the only expert on embedded
+    system. This was the first job after University  and there was alot of
+    responsibility. He had to design the schematics for the embedded systems
+    and then produce the software for these. \textit{''The differense between
+    designing hardware and software was the development cycles. You get almost
+    instant response if your program works but you had to wait for  weeks to get
+    feedback that your hardware design worked''}.
     
     Another aspect he remembered from this time was that he missed having 
     colleges working in the same area to share solution with. But that was also
-    the good part. I learned alot and I mostly made the right decision, a 
+    the good part. \textit{''I learned alot and I mostly made the right decision, a 
     confident booster. I was also involved in a lot of projects and met many
-    intresting people during my time there. 
+    intresting people during my time there.''} 
     
     After that period he started to work as a consultant and mostly worked in 
-    larger mobile phone companies. \textit{`I started out as a integretor at Ericsson 
-    AB. My boss told me that it your work is being a cop. I integrated other
-    people software and when someone broke the platform you hunted down the
-    guilty one and made him fix it or remove his part. The debugging part and
-    was fun, but documenting what went in was very monotone work.'} 
+    larger mobile phone companies. \textit{''I started out as a integretor at 
+    Ericsson AB. My boss told me that my work was being a cop. I integrated 
+    other peoples software and when someone broke the platform you hunted down
+    the guilty one and made him fix it or remove his part. The debugging part
+    and was fun, but documenting what went in was very monotones work.''} 
 
-    Another part of this job was working with the lint tools, deciding what to 
-    filter, what to allow and answering question from other developers about 
-    the tools warning. This was fun and also educational and I learned alot
-    about good program practices and the quirks in the C language.
+    He also was responsible for the lint tool, deciding what to filter, what 
+    to allow and answering questions from other developers about the tools
+    warning. \textit{''That was fun and educational. I learned alot about good
+    program practices and the quirks in the C language.''}
 
-    Working in other  
+    But he was glad when he startet to work as a software developer again. 
+    \textit{``Programming is enjoyable. Spending hours, days, weeks, to 
+    improve the code. Cleaner more efficient code.  Shaving of a few 
+    milliseconds, use less resources, making it more perfect, more beatifull.
+    Having spend that time, editing some text according to specific rules. 
+    Your code is fluctual, might be thrown out the next rewrite,
+    might stay there a long time. Might be ignored. Might be used by 
+    millions. Sorry, getting to filosofical? ''} 
+
+    He started on a new assignment in 2009 to Sony Ericsson, where he worked
+    with the ETS software used to test the phones at the factory. This was 
+    mostly low level development using the android development. \textit{''We got
+    to play with the new hardware, often helping out to get the drivers work 
+    with the hardware. I was mosltly involved with the GPS tests, Since 
+    qualcomms testsoftware did not include a way to calculate the S/N ratio for
+    the GPS signal on the phone and we used the serial port to extract the S/N
+    ratio  this test took several minutes to performe, so I ported the S/N ratio
+    calculation to the phone and got down the test to 4 seconds. There was
+    optimisation involved which made it enjoyable. I also made some of the
+    display and touch tests, and helped a little with the wlan driver''}
+
+    Then he started working at Ericsson again, in audio this time, working with
+    Low Power Audio the alsa driver, fixing error reports and traveling to
+    customer for support. \textit{''The thing I will remember at this job is 
+    traveling the work with the customers, the differens in working culture. 
+    It was a tight schedule and lots of bugs. Somehow we made it work though. We
+    had good support team back home and my most important role was not to solve 
+    bugs, but to work with customer relationship. It was exciting time with lots
+    of action and a good outcome. Coming home to the slow scandinavian pace I
+    almost got post war syndrome, haha.''}
+
+    Now he is working with a new project, where Sony Mobile is outsourcing
+    several Android applications. One of the places is to the consulting firm
+    where he works. 
+
 }
 
 \end{multicols}
