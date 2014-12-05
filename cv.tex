@@ -2,82 +2,245 @@
 %     Created: Fri Sep 21 10:00 AM 2012 C
 % Last Change: Fri Sep 21 10:00 AM 2012 C
 %
-\documentclass[a4paper]{article}
+%
+%
+%
+\documentclass[a4paper,12pt,final]{memoir}
+
+\renewcommand{\familydefault}{bch}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+
+\usepackage{flowfram} 
+\usepackage[top=1cm,left=0.5cm,right=1cm,bottom=1cm]{geometry} 
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[usenames,dvipsnames,svgnames]{xcolor} 
+\usepackage{multicol} 
+  \setlength{\multicolsep}{0pt}
+\usepackage{paralist} 
+\usepackage{tikz} 
+
+\setlength{\vcolumnsep}{\baselineskip}
+\setlength{\columnsep}{\vcolumnsep}
+
+% left frame
+\newflowframe{0.2\textwidth}{\textheight}{0pt}{0pt}[left]
+	\newlength{\LeftMainSep}
+	\setlength{\LeftMainSep}{0.2\textwidth}
+	\addtolength{\LeftMainSep}{1\columnsep}
+ 
+% small static frame for the vertical line
+\newstaticframe{1.5pt}{\textheight}{\LeftMainSep}{0pt}
+ 
+% content of the static frame
+\begin{staticcontents}{1}
+\hfill
+\tikz{%
+	\draw[loosely dotted,color=RoyalBlue,line width=1.5pt,yshift=0]
+	(0,0) -- (0,\textheight);}%
+\hfill\mbox{}
+\end{staticcontents}
+ 
+% right frame
+\addtolength{\LeftMainSep}{1.5pt}
+\addtolength{\LeftMainSep}{1\columnsep}
+\newflowframe{0.7\textwidth}{\textheight}{\LeftMainSep}{0pt}[main01]
+
+
+\newcommand{\Sep}{\vspace*{1.5em}}
+\newcommand{\SmallSep}{\vspace*{0.5em}}
+
+\newenvironment{AboutMe}
+  {\ignorespaces\textbf{\color{RoyalBlue} About me}}
+  {\Sep\ignorespacesafterend}
+
+\newcommand{\CVSection}[1]
+	{\Large\textbf{#1}\par
+	\SmallSep\normalsize\normalfont}
+\newcommand{\CVItem}[1]
+	{\textbf{\color{RoyalBlue} #1}}
+
+
+
+
+\newlength{\spacebox}
+\newcommand{\sepspace}{\vspace*{1em}}
+
+\newcommand{\MySlogan}[1]{
+  \small \usefont{OT1}{phv}{m}{n}\hfill \textit{#1} % Slogan (optional)
+  \par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+  \noindent\hangindent=2em\hangafter=0
+  \parbox{\spacebox}{
+    \textit{#1}
+  }
+  \hspace{1.5em} #2 \par
+}
+
+\newcommand{\EducationEntry}[4]{
+  \noindent \textbf{#1} \hfill 					% Jobname
+  \colorbox{Black} {%
+    \parbox{6em}{%
+      \hfill\color{White}#2
+    }
+  } \par		% Duration
+  \noindent \textit{#3} \par					% Company
+  \noindent\hangindent=2em\hangafter=0 \small #4 	% Description
+  \normalsize \par
+}
+
+\newcommand{\WorkEntry}[4]{
+  % Same as \EducationEntry
+  \noindent \textbf{#1} \hfill              % Jobname
+  \colorbox{Black}{\color{White}#2} \par    % Duration
+  \noindent \textit{#3} \par                % Company
+  \noindent\hangindent=2em\hangafter=0 \small #4 % Description
+  \normalsize \par
+}
+
+%\setlength\topmargin{-48pt}
+%\setlength\headheight{0pt}
+%\setlength\headsep{25pt}
+%\setlength\marginparwidth{-20pt}
+%\setlength\textwidth{7.0in}
+%\setlength\textheight{9.5in}
+%\setlength\oddsidemargin{-30pt}
+%\setlength\evensidemargin{-30pt}
+
 \author{Mikael Vatau}
 \title{CV}
 \begin{document}
 
-\section{Mikael Vatau \emph{\\work creates, creativity is fun}}
-I am specialized in Embedded Systems Programming and Linux. I work with C and 
-have an acquired taste for Linux/Unix. Working with tools such as vim, zsh, 
-and strong coffee, raises my productivity. Working in a friendly environment
-makes me creative. I am tired of cold weather, quite 
-evenings and a comfortable life. I am kind, tolerant and likable. I 
-prefer good food, and happy people. 
+% Left
+\begin{figure}
+	\hfill
+	\includegraphics[width=0.6\columnwidth,natwidth=180,natheight=180]{mesmall.jpeg}
+	\vspace{-7cm}
+\end{figure}
 
-\section{Work History \\ \emph { {\small You spend weeks in contemplation, \\to perfectionate, to save a second of someones life.\\A second for millions of someones}}}
-\textbf{Mar 2005 - today, Senior Consultant, Netville AB}\\
-\textbf{Jan 2000 - Sep 2004, Research Engineer, Lund University, Robotics}\\
+\begin{flushright}\small
+	Mikael H. Vatau \\
+	\url{mike@mikesdiary.com}  
+\end{flushright}\normalsize
+\framebreak
 
+%Right
+\Huge\bfseries {\color{RoyalBlue} Mikael H. Vatau} \\
+\tiny\bfseries  “Problems cannot be solved by the same level of thinking that created them.”
+%\small\bfseries  “work creates, creativity is fun" %mv why doesn't it say what I want damn it..,
 
+\normalsize\normalfont
+\Sep
+\begin{AboutMe} %mv should probably at some skills here..
+  Very proficient developer with more then 7 year experience with developing mobile phone platform
+  and almost 12 year experience in embedded system development both hardware and software.
+  Worked within many areas such as Audio, GPS, touchscreen, Bluetooth, WLAN and Motor control in both
+  large and small scaled project.
+\end{AboutMe}
 
-
-Date: 	Oct 2010 – today
-ST-Ericsson
-Description: 	Low level Audio in the audio/hw team on Android platform. Involved in low level audio  The work involves debugging and solving issues related to audio in the kernel and drivers. Also responsible for the LTP test cases for the alsa driver. Worked mostly with audiocodecs and low power audio.
-
-Date: 	Jun 2010 - Sep 2010
-Unnamed customer
-Android application to help visually impaired people in making phone calls. 
-
- 
-Mar 2009 - Apr 2010
-Sony Ericsson Mobile Communications AB		
-Developer of embedded test software for testing hardware components in a mobile phone and worked mainly with GPS, WLAN and touch display. As part of the Embedded Test Software team helped bring up drivers and write the test-software used at the production site. The ETS software was used  when manufacturing developer prototypes used internally and in the high volume manufacturing.
- 
-Mar 2005 - May 2008	: 
-Ericsson AB	
-C, Lint, Visual Studio, Eclipse
-Worked with configuration the PCLint tool for the platform (OSE) and compiler. PCLint is a static code analysis tool that flag suspicious constructs in the code and was used by all the developers before checking in a change. Supported developer with advice or by changing the compiler.
-
-Ericsson AB	Mar 2005 - May 2007	
-Worked with integration of component subsystems in a Clearcase environment at the Open Platform Architecture (OPA) department. Work also include regression testing, release and test documentation, and trouble shooting, (The trouble shooting was mostly to find out who was the responsible for a regression and included lauterbach debugger, dump analysis and looking at logs). 
-
-Jan 2000 - Sep 2004
-University of Lund in Sweden, Robotics institution		
-Irix, Linux, Windows
-Network administration for the robotics department. This work was done in parallel with the other tasks mentioned below.
- 
-
-January 2000 – September 2004
-University of Lund in Sweden, Robotics institution
-
-Worked in several projects, and in several roles, among these:
-
-Apr 2003 - Sep 2004	
-PLC, CANopen, Isagraf Designer
-Developed software for a laboratory robot used by AstraZeneca for protein testing. The robot would take a protein sample, deploy it, and then clean the picker. Software was done in PLC using the Isagraph Designer.
- 
-Jul 2003 - Feb 2004
-PHP, MySQL, Javascript, HTML
-Developed a new webpage for the Robotics department which included news section, document repository. PHP, MySQL and Javascript was used. 
- 
-Jan 2000 - Jun 2003
-C, Protel, P\&E Microsystem, CAN, Frescale MCU, Unix
-Redesigned  controller cards that where used to control DC and Step motors. This involved designing    the micro controller card with a 32 bit CPU from Freescale in the Protel Cad software and verify / troubleshoot the hardware. The CPU used a CAN bus to communicate with other controller cards and the PC.  Also developed the software running on the embedded system. The micro-controller was used in several different projects e.g. a robotics arm on a wheelchair.
+\CVSection{Expertice}
+Software development (+12 years) (C, C++, Java, PHP, Assembler, etc.\\
+Linux kernel development (drivers, ALSA, power manager etc.\\
+Android\\ 
+Embedded systems\\  
+Low level (Audio, GPS, Bluetooth, WLAN, CAN, etc. \\ 
+Version control systems (Git, Clearcase, CVS)\\
+Debugging (Lauterbach, GDB) \\
+Good at optimizing software \\
+Good communicator\\
+\Sep
 
 
-\section{Education}
+\CVSection{Experience}
+\WorkEntry{Consultant}{2005 - present}{Netville}{Worked as a consultant for more than 
+  7 years for different customers in the mobile phone industry in different areas such 
+  as software configuration, developer for low level audio, GPS, touch screen, WLAN, 
+  Bluetooth, as well as on-site support and higher level application development.}
+\sepspace
 
-Malmö University	Practical English in Cross-cultural Communication	2003 - 2003			
-Lund Institute of Technology	Electro Engineer (B.Sc.E.E.)	1995 - 2000			
+\CVItem{2 years, Low level Audio/HW, ST-Ericsson}
+  {where I worked with Low Power audio playback, Wideband Bluetooth and ALSA. Later worked with customers 
+    on site in Asia and Sweden troubleshooting critical issues under time pressure before release.
+  }
+\sepspace
 
-Courses
-Linux for Embedded Systems Advanced	Sony Ericsson Mobile Communications AB	Enea	2009		
-Linux for Embedded Systems	            Ericsson AB	External consultant company	     	2008		
-GPRS Security				Ericsson AB	Ericsson Internal			2006	
-IRIX System administration	SGI		SGI							2000
+\CVItem{3 month, Netville Customer}
+{Developed an Android application to enable visually impaired to use the phone.} 
+\sepspace
 
+\CVItem{1 year, Sony Ericsson Mobile Communications AB}
+  {Worked with test software used on phone at production site to test GPS, which involved optimizing
+    S/N calculation lowering the test time from 30 sec to under 4 seconds. Worked also with Display
+    test and WLAN Drivers.
+  }
+\sepspace
+
+\CVItem{4, years, Ericsson AB}	
+  {Worked as configuration manager, and later as a developer at the Open Platform Architecture department. 
+    Was also responsible for configuration static code analysis tool (PCLint) and aid other software developers
+    concerning ANSI C, and code standard issues.}
+\clearpage
+\framebreak
+\framebreak
+
+
+\WorkEntry{Research engineer}{Jan 2000- Sep 2004}{Robotics, Lund University}{Worked 
+  almot 5 years in multiple hardware and software projects, 
+  Maintaining of the departments computer and with development of their website.}
+\sepspace
+
+\CVItem{4 years, Robotics institution}		
+  {Administrating IRIX, Linux and Windows Network at the robotics department.}
+\sepspace
+
+\CVItem{1 year, AstraZeneca}		
+  {Developed software for a laboratory robot used by AstraZeneca for protein testing. 
+  }
+\sepspace
+
+\CVItem{7 month, Robotics institution}		
+  {Developed the institution new website included news section, document repository, etc. 
+  } 
+\sepspace
+
+\CVItem{3 years, Robotics institution}		
+{Designed microcontroller cards that where used to control DC and Step motors. Based on a 32 bit CPU from 
+  Freescale. The design was made in Protel Cad software and verify / troubleshoot the hardware. Different versions were produced depending on power, size, and communication requirements.
+}
+\sepspace
+
+\CVItem{3 years, Robotics institution}		
+{Developed motor control and software used on an embedded system to communicate both with other  embedded systems and with a PC via the CAN protocol.
+  The software was for a microcontroller that would be used to control the nodes on a robotic arm, attached to a wheelchair for physically disabled people.
+} 
+\sepspace
+
+\CVItem{17 month, EU project}		
+{Was responsible for the design and implementation of the hardware electronics and software in an EU project developing a can/bottle opener for physically disabled people. 
+} 
+
+
+\NewPart{Education}{}
+
+\EducationEntry {Course}{2009}{Sony Ericsson Mobile Communications AB (ENEA)}
+{Linux for Embedded Systems Advanced}	
+\sepspace
+
+\EducationEntry {Course}{2008}{Ericsson AB - Linux for Embedded Systems}{}
+
+\EducationEntry {Course}{2006}{Ericsson AB - GPRS Security}{}
+
+\EducationEntry{Course, , University}{2003}{Malm\"{o}ö Education - Practical English in Cross}{cultural Communications}
+\sepspace
+
+\EducationEntry {Course}{2000}{SGI - IRIX System administration}{}
+
+\EducationEntry{B.Sc.E.E. Electro Engineer}{1997-2000}{Lund Institute of Technology}{}
 \end{document}
 
 
